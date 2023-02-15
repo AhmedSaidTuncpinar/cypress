@@ -1,4 +1,4 @@
-import { makeRequestForCookieBehaviorTests as makeRequest } from '../../../support/utils'
+import { makeRequestForCookieBehaviorTests as makeRequest } from '../../../../support/utils'
 
 declare global {
   interface Window {
@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-describe('Cookie Behavior', { browser: '!webkit' }, () => {
+describe('Cookie Requests Behavior (XMLHttpRequest and Fetch)', { browser: '!webkit' }, () => {
   const serverConfig = {
     http: {
       sameOriginPort: 3500,
@@ -41,7 +41,7 @@ describe('Cookie Behavior', { browser: '!webkit' }, () => {
           originUrl = `${scheme}://www.foobar.com:${sameOriginPort}`
 
           cy.origin(`${scheme}://www.foobar.com:${sameOriginPort}`, () => {
-            window.makeRequest = Cypress.require('../../../support/utils').makeRequestForCookieBehaviorTests
+            window.makeRequest = Cypress.require('../../../../support/utils').makeRequestForCookieBehaviorTests
           })
         })
 
